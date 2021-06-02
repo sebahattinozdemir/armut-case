@@ -1,0 +1,76 @@
+<div *ngIf="!questionWindow" class="row">
+  <div class="col-12 mx-auto text-secondary my-3 text-center">
+    <h1>Haftanin Trend Hizmetleri</h1>
+  </div>
+
+  <div class="col-6 border border-danger" *ngFor="let service of services">
+    <div class="col-12 text-center">
+      <strong>{{ service.name }}</strong>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-sm btn-success w-100" (click)="start(service)">
+        Teklif Al
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="questionWindow" class="row">
+
+
+  <div class="col-12 text-center">
+    <button class="btn" [disabled]="currentPage === 0 ? true : false" style="float: left;outline: none;" (click)="backward()"><i class="fas fa-chevron-left"></i></button>
+    
+    <strong style="font-size: smaller">{{ currentService.name }}</strong>
+
+    <button class="btn" style="float: right" (click)="close()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="w-100 mx-0">
+
+    <div class="progress mx-0" style="height: 2px">
+      <div class="progress-bar bg-success mx-0" role="progressbar" style="width: 25%" aria-valuenow="25"
+        aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+
+  <div  class="col-12 border-bottom shadow p-2">
+    <strong style="float: left; font-size: small">Ortalama Fiyat Araligi:</strong>
+
+    <strong style="float: right; font-size: medium">{{ currentService.price.min }}-{{ currentService.price.max }}
+      {{ currentService.price.currency }}</strong>
+  </div>
+
+  <div *ngIf="currentService.discountRateText && currentPage===0" style="background-color:black" class="col-12 text-center text-white border-bottom p-2">
+    <strong style="font-size: small">{{discountServiceText}} <span style="color:green">{{discountRate}} </span> {{discountRateLastText}}</strong>
+  </div>
+
+
+  <div class="row mx-4" *ngFor="let question of currentQuestion">
+
+    <app-type-id4  *ngIf ="question.typeId === 4 && currentPage===question.pageNumber"  (handle4)  ="handle4($event)" [question]="question"></app-type-id4>
+    <app-type-id5  *ngIf ="question.typeId === 5 && currentPage===question.pageNumber"  (handle5)  ="handle5($event)" [question]="question"></app-type-id5>
+    <app-type-id6  *ngIf ="question.typeId === 6 && currentPage===question.pageNumber"  (handle6)  ="handle6($event)" [question]="question"></app-type-id6>
+    <app-type-id8  *ngIf ="question.typeId === 8 && currentPage===question.pageNumber"  (handle8)  ="handle8($event)" [question]="question"></app-type-id8>
+    <app-type-id9  *ngIf ="question.typeId === 9 && currentPage===question.pageNumber"  (handle9)  ="handle9($event)" [question]="question"></app-type-id9>
+    <app-type-id11 *ngIf="question.typeId === 11 && currentPage===question.pageNumber" (handle11) ="handle11($event)" [question]="question"></app-type-id11>
+    <app-type-id13 *ngIf="question.typeId === 13 && currentPage===question.pageNumber" (handle13) ="handle13($event)" [question]="question"></app-type-id13>
+
+  </div>
+   
+
+
+  <div class="col-12 mx-auto my-2 position-absolute" style="bottom:0">
+
+    <button [disabled]="srv.disabledCont" *ngIf="questionsLength !== currentPage" class="btn btn-success " style="width:100%" (click)="continue()">
+      DEVAM
+    </button>
+    
+    <button *ngIf="questionsLength === currentPage"  class="btn btn-success " style="width:100%" (click)="requestService()">
+      TALEP GONDER
+    </button>
+    
+
+  
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="row">
+
+    <div class="col-12 my-3 text-center">
+        <strong class="font-weight-bolder; color:black; ">{{question.label}}</strong>
+    </div>
+
+    <div class="col-12">
+        <div class="form-check w-100 mx-3 px-4 mb-3 py-2" *ngFor="let value of question.values" style="background-color:#f8f8f8">
+            <input class="form-check-input" type="radio" (change)="getData(value.value)" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label font-weight-bold" style="font-size:small" for="exampleRadios1">
+                {{value.value}}
+            </label>
+            
+            <div *ngIf="value.id === 4" class="form-row mt-1">
+           
+                <select [disabled]="disabled" class="form-select col-7 mx-2" (change)="getDate($event)" aria-label=".form-select-sm example">
+                    <option [value]="date" *ngFor="let date of dates;"  >{{date}}</option> 
+                </select>
+                
+                <select [disabled]="disabled" class="form-select col-4" (change)="getHour($event)" aria-label=".form-select-sm example">
+                    <option [value]="hour" *ngFor="let hour of hours;"  >{{hour}}</option> 
+                    
+                </select>
+                  
+            
+            </div>
+
+
+        </div>
+        
+    <label *ngIf="question.required && srv.disabledCont" style="color:red;font-size: smaller;"> Bu alan zorunlu</label>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+
+    <div class="col-12 my-3 text-center">
+        <strong class="font-weight-bolder; color:black; ">{{question.label}}</strong>
+    </div>
+
+    <div class="col-12 mb-3">
+
+        <div class="form-group">
+
+            <select class="form-control my-2" (change)="selectedCity($event)">
+                <option selected>Il</option>
+                <option [value]="opt.cityId" *ngFor="let opt of cities">{{opt.name}}</option>
+            </select>
+            <select class="form-control my-2" (change)="selectedTown($event)">
+                <option>Ilce</option>
+                <option [value]="opt.townId" *ngFor="let opt of currentCityTowns">{{opt.name}}</option>
+            </select>
+            <select class="form-control my-2" (change)="selectedDistrict($event)">
+                <option>Mahalle</option>
+                <option [value]="opt.distirctId"  *ngFor="let opt of  currentCityTownsDistricts">{{opt.name}}</option>
+            </select>
+        
+        </div>
+        
+    <label *ngIf="question.required && srv.disabledCont" style="color:red;font-size: smaller;"> Bu alan zorunlu</label>
+
+    </div>
+</div>

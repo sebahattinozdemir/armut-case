@@ -1,0 +1,17 @@
+<div class="row"  style="max-height: 510px; overflow-y:scroll">
+
+    <div class="col-12 my-3 text-center">
+        <strong class="font-weight-bolder;">{{question.label}}</strong>
+    </div>
+
+    <div class="col-12 d-flex mb-3 justify-content-between mr-3">
+        <button (click)="decrement()" [disabled]="data===1" type="button" class="btn border  btn-circle btn-md"><i class="fas fa-minus"></i></button>
+            <div class="mx-5 d-inline"> <strong class="ml-2" style="color:black; font-weight:900; font-size: 36px;"> {{data}} </strong> <p> {{question.unit}}</p> </div>
+        <button (click)="increment()" type="button" class="btn border btn-circle btn-md"><i class="fas fa-plus"></i></button>
+    </div>
+
+    <label *ngIf="question.required && srv.disabledCont" style="color:red;font-size: smaller;"> Bu alan zorunlu</label>
+
+  
+            
+</div>
