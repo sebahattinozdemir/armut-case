@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/searates'),
+      dir: require('path').join(__dirname, './coverage/armut-case'),
       subdir: '.',
       reporters: [
         { type: 'html' },
