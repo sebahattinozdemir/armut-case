@@ -61,13 +61,9 @@ export class TypeId11Component implements OnInit {
       this.disabled=true;
     }
     
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = false;
-    } else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+      
+    this.srv.setErrText(this.question)
+    
   }
 
   getDate(event: any) {

@@ -23,26 +23,15 @@ export class TypeId4Component implements OnInit {
 
   decrement() {
 
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = false;
-    }else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+   this.srv.setErrText(this.question)
     this.data--;
     this.handle4.emit({ data: this.data, question: this.question.label, questionId: this.question.id })
   }
 
   increment() {
     
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = false;
-    }else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+    this.srv.setErrText(this.question)
+    
     this.data++;
     this.handle4.emit({ data: this.data, question: this.question.label, questionId: this.question.id })
   }

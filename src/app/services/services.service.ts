@@ -15,6 +15,16 @@ export class ServicesService{
   setErr = false;
   disabledCont:boolean = false;
 
+  setErrText(question:any){
+    if (question.required) {
+      this.setErr = true;
+      this.disabledCont = false;
+    }else{
+      this.setErr = false;
+      this.disabledCont = false;
+    }
+  }
+
   services: any[] = [
     {
       "serviceId": 399,

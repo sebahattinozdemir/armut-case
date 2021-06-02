@@ -92,6 +92,8 @@ export class ServicesComponent implements OnInit {
     this.splitDiscountText(service)
 
     this.getQuestions(service)
+
+    this.answers = [];
   }
 
 
@@ -101,6 +103,8 @@ export class ServicesComponent implements OnInit {
     this.questionWindow = false;
     this.currentQuestions = [];
     this.currentQuestion = [];
+
+    this.answers = [];
   }
 
 

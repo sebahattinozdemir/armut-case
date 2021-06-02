@@ -21,13 +21,9 @@ export class TypeId5Component implements OnInit {
   data:any;
   getData(target:string) {
    
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = false;
-    } else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+  
+    this.srv.setErrText(this.question)
+    
     this.data = target;
     this.handle5.emit({data:target,question:this.question.label,questionId:this.question.id})
   }

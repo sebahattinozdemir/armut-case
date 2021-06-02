@@ -24,13 +24,8 @@ export class TypeId13Component implements OnInit {
     console.log(this.data)
     
     
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = true;
-    } else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+     
+    this.srv.setErrText(this.question)
    
     this.handle13.emit({data:event.target.files.item(0),question:this.question.label,questionId:this.question.id})
   }

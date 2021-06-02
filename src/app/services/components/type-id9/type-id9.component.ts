@@ -73,13 +73,9 @@ export class TypeId9Component implements OnInit {
     this.handle9.emit(this.data)
     
     
-    if (this.question.required) {
-      this.srv.setErr = true;
-      this.srv.disabledCont = false;
-    } else{
-      this.srv.setErr = false;
-      this.srv.disabledCont = false;
-    }
+     
+    this.srv.setErrText(this.question)
+    
   }
 
   cities = [
